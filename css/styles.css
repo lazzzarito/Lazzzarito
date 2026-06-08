@@ -3812,7 +3812,7 @@ img.u-pull-left {
     margin: var(--vspace-4) 0 var(--vspace-1);
     padding: 0;
     display: grid;
-    gap: var(--vspace-2);
+    gap: 16px;
 }
 
 .folio-list-text__item {
@@ -3827,7 +3827,7 @@ img.u-pull-left {
     text-decoration: none;
     color: white;
     transition: color 0.3s ease;
-    padding: var(--vspace-1_5) var(--vspace-1_5);
+    padding: 15px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 0.75rem;
 }
@@ -3892,7 +3892,7 @@ img.u-pull-left {
 @media screen and (min-width: 1200px) {
     .folio-list-text {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: var(--vspace-2_5);
+        gap: 40px;
     }
 }
 
