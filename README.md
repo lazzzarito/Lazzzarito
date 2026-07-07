@@ -18,13 +18,12 @@ I'm the guy who fixes busted sites, builds clean web work, and keeps it real. If
 
 ## 💼 Quick stats
 
-| Metric                        | Value       |
-| ----------------------------- | ----------- |
-| **Years of Experience** | 10+         |
-| **Projects Completed**  | 57          |
-| **Happy Clients**       | All of them |
-| **Work in Progress**    | 21          |
-| **Availability**        | Right now   |
+| Metric                        | Value     |
+| ----------------------------- | --------- |
+| **Years of Experience** | 10+       |
+| **Projects Completed**  | 57        |
+| **Work in Progress**    | 21        |
+| **Availability**        | Right now |
 
 ## 🛠️ Skills
 
