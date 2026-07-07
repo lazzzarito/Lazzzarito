@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Intro from "../components/Intro.astro";
+import About from "../components/About.astro";
+import Works from "../components/Works.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout>
+  <div class="s-pagewrap">
+    <div class="circles">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <Header />
+    <main class="s-content">
+      <Intro />
+      <About />
+      <Works />
+      <Contact />
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
