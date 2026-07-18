@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Lizt Alfonso Dance Cuba",
+    "description": "Dance-based site for classes, events, and booking info.",
+    "images": ["lizt.webp"],
+    "tech": ["WordPress", "WooCommerce", "PHP"],
+    "platforms": ["web"],
+    "link": "https://liztalfonso.com",
+    "category": "Company & school"
+  },
+  {
+    "title": "Bienestar Animal Cuba",
+    "description": "Animal welfare site with donation, adoption, and volunteer info.",
+    "images": ["bac.webp"],
+    "tech": ["WordPress", "PHP", "Donation Plugins"],
+    "platforms": ["web"],
+    "link": "https://bacuba.org/",
+    "category": "Nonprofit"
+  },
+  {
+    "title": "Alex's Gold Joyería",
+    "description": "Clean product gallery with a premium, polished feel.",
+    "images": ["alexs.webp"],
+    "tech": ["Shopify", "Liquid", "Custom Theme"],
+    "platforms": ["web"],
+    "link": "https://alexsgoldjoyeria.com/",
+    "category": "Jewelry brand"
+  },
+  {
+    "title": "El Toque de Oro",
+    "description": "Straightforward landing page with clear offers and quick contact.",
+    "images": ["toque.webp"],
+    "tech": ["WordPress", "PHP", "Elementor"],
+    "platforms": ["web"],
+    "link": "https://eltoquedeoro.com/",
+    "category": "Financial services"
+  },
+  {
+    "title": "Whatalog",
+    "description": "Turn your products into WhatsApp orders — no backend, no database, no hassle.",
+    "images": ["whatalog.webp"],
+    "tech": ["NextJs", "Astro", "Vercel"],
+    "platforms": ["web"],
+    "link": "https://whatalog.vercel.app/",
+    "category": "Ecommerce Template"
+  },
+  {
+    "title": "Javier Larrea",
+    "description": "Minimal showcase for creative work, built to scroll clean and fast.",
+    "images": ["larrea.webp"],
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "platforms": ["web"],
+    "link": "https://javierlarrea.com",
+    "category": "Portfolio"
+  }
+]

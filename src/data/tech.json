@@ -1,0 +1,129 @@
+{
+  "categories": [
+    {
+      "title": "Frontend",
+      "skills": [
+        {
+          "name": "HTML",
+          "level": 3,
+          "icon": "skill-icons:html"
+        },
+        {
+          "name": "CSS",
+          "level": 3,
+          "icon": "skill-icons:css"
+        },
+        {
+          "name": "JavaScript",
+          "level": 3,
+          "icon": "skill-icons:javascript"
+        },
+        {
+          "name": "TypeScript",
+          "level": 3,
+          "icon": "skill-icons:typescript"
+        },
+        {
+          "name": "React",
+          "level": 3,
+          "icon": "skill-icons:react-dark"
+        },
+        {
+          "name": "NextJs",
+          "level": 3,
+          "icon": "skill-icons:nextjs-dark"
+        },
+        {
+          "name": "Astro",
+          "level": 3,
+          "icon": "skill-icons:astro"
+        },
+        {
+          "name": "Tailwind",
+          "level": 3,
+          "icon": "skill-icons:tailwindcss-dark"
+        }
+      ]
+    },
+    {
+      "title": "CMS & Design",
+      "skills": [
+        {
+          "name": "WordPress",
+          "level": 3,
+          "icon": "skill-icons:wordpress"
+        },
+        {
+          "name": "WooCommerce",
+          "level": 3,
+          "icon": "mdi:cart-outline"
+        },
+        {
+          "name": "Shopify",
+          "level": 3,
+          "icon": "mdi:storefront-outline"
+        },
+        {
+          "name": "Webflow",
+          "level": 3,
+          "icon": "mdi:code-tags"
+        },
+        {
+          "name": "Framer",
+          "level": 2,
+          "icon": "mdi:draw"
+        },
+        {
+          "name": "Figma",
+          "level": 3,
+          "icon": "skill-icons:figma-dark"
+        }
+      ]
+    },
+    {
+      "title": "Backend & DevOps",
+      "skills": [
+        {
+          "name": "PHP",
+          "level": 3,
+          "icon": "skill-icons:php-dark"
+        },
+        {
+          "name": "Node.js",
+          "level": 3,
+          "icon": "skill-icons:nodejs-dark"
+        },
+        {
+          "name": "Python",
+          "level": 3,
+          "icon": "skill-icons:python-dark"
+        },
+        {
+          "name": "Kotlin",
+          "level": 2,
+          "icon": "skill-icons:kotlin-dark"
+        },
+        {
+          "name": "Git",
+          "level": 3,
+          "icon": "skill-icons:git"
+        },
+        {
+          "name": "Docker",
+          "level": 2,
+          "icon": "skill-icons:docker"
+        },
+        {
+          "name": "Linux",
+          "level": 3,
+          "icon": "skill-icons:linux-dark"
+        },
+        {
+          "name": "SQL",
+          "level": 3,
+          "icon": "mdi:database-outline"
+        }
+      ]
+    }
+  ]
+}
