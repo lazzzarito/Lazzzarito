@@ -1,0 +1,160 @@
+---
+import '../styles/global.css';
+import favicon from '../assets/favicon.ico';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Page not found — 1azarito" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="icon" href={favicon} type="image/x-icon" />
+    <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+    <title>404 — Page not found</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="404 — Page not found | 1azarito" />
+    <meta property="og:description" content="This page doesn't exist. It may have been moved, deleted, or perhaps it never existed at all." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="1azarito | Portfolio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="404 — Page not found | 1azarito" />
+
+    <style>
+      .glitch {
+        animation: glitch 3s infinite;
+        position: relative;
+      }
+      .glitch::before,
+      .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .glitch::before {
+        color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+        animation: glitch-offset 2.5s infinite linear alternate-reverse;
+        clip-path: inset(20% 0 60% 0);
+      }
+      .glitch::after {
+        color: color-mix(in srgb, var(--color-subtext) 30%, transparent);
+        animation: glitch-offset 3.2s infinite linear alternate;
+        clip-path: inset(60% 0 10% 0);
+      }
+      @keyframes glitch {
+        2%, 64% { transform: translate(0); }
+        4%, 60% { transform: translate(-1px, 1px); }
+        62% { transform: translate(1px, -1px); }
+      }
+      @keyframes glitch-offset {
+        0% { transform: translate(0); }
+        25% { transform: translate(-1px, 1px); }
+        50% { transform: translate(1px, -1px); }
+        75% { transform: translate(-2px, 2px); }
+        100% { transform: translate(2px, -2px); }
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: revealIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+      @keyframes revealIn {
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body class="bg-background min-h-screen font-body antialiased text-white overflow-x-hidden">
+    <!-- Matrix Background -->
+    <div id="matrix-container" class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"></div>
+
+    <!-- Main Content -->
+    <main class="relative z-0 min-h-screen flex flex-col items-center justify-center px-6 text-center">
+      <!-- Code bracket decorations -->
+      <div class="fade-in absolute top-12 left-8 md:left-16 text-subtext/10 font-heading text-6xl md:text-8xl font-bold select-none" style="animation-delay: 50ms;">&#123;</div>
+      <div class="fade-in absolute bottom-12 right-8 md:right-16 text-subtext/10 font-heading text-6xl md:text-8xl font-bold select-none" style="animation-delay: 50ms;">&#125;</div>
+
+      <!-- Small tag -->
+      <p class="fade-in font-mono text-xs tracking-[0.3em] uppercase text-subtext/60 mb-6" style="animation-delay: 100ms;">
+        &lt;error_code /&gt;
+      </p>
+
+      <!-- 404 Glitch -->
+      <h1
+        class="glitch fade-in text-9xl md:text-[12rem] font-heading font-bold text-maintext leading-none mb-4 select-none"
+        data-text="404"
+        style="animation-delay: 200ms;"
+      >
+        404
+      </h1>
+
+      <!-- Separator -->
+      <div class="fade-in w-16 h-[1px] bg-white/20 mb-6" style="animation-delay: 300ms;"></div>
+
+      <!-- Message -->
+      <p class="fade-in text-subtext font-body text-lg md:text-xl max-w-md mb-10" style="animation-delay: 400ms;">
+        This page doesn't exist. It may have been moved, deleted, or perhaps it never existed at all.
+      </p>
+
+      <!-- Home Button -->
+      <a
+        href="/"
+        class="fade-in group relative inline-flex items-center gap-2 px-8 py-3 border border-white/20 rounded-full text-maintext font-body text-sm transition-all duration-300 hover:border-white/60 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:scale-105"
+        style="animation-delay: 500ms;"
+      >
+        <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L3 12h3v8h12v-8h3L12 2z" />
+        </svg>
+        Back to home
+      </a>
+    </main>
+
+    <script>
+      // Matrix rain effect
+      const container = document.getElementById('matrix-container');
+      const characters = "{}[]()<>/\\=+*01;";
+      const color = "var(--color-textrain)";
+
+      if (window.innerWidth > 768) {
+        function createLetter() {
+          if (!container) return;
+          const span = document.createElement('span');
+          span.innerText = characters[Math.floor(Math.random() * characters.length)];
+          span.className = 'falling-letter';
+          span.style.left = `${Math.random() * 100}vw`;
+          span.style.color = color;
+          span.style.fontSize = `${10 + Math.random() * 10}px`;
+          span.style.animationDuration = `${4 + Math.random() * 8}s`;
+          span.style.textShadow = `0 0 8px ${color}, 0 0 20px rgba(255,255,255,0.12)`;
+          container.appendChild(span);
+          setTimeout(() => span.remove(), (4 + Math.random() * 8) * 1000);
+        }
+        setInterval(createLetter, 120);
+      } else {
+        // CSS-animated rain for mobile (no continuous JS — lightweight)
+        for (let i = 0; i < 20; i++) {
+          const span = document.createElement('span');
+          span.innerText = characters[Math.floor(Math.random() * characters.length)];
+          span.className = 'falling-letter';
+          span.style.left = `${Math.random() * 100}vw`;
+          span.style.color = color;
+          span.style.fontSize = `${10 + Math.random() * 10}px`;
+          span.style.textShadow = `0 0 8px ${color}, 0 0 20px rgba(255,255,255,0.12)`;
+          const duration = 4 + Math.random() * 8;
+          span.style.animationDuration = `${duration}s`;
+          span.style.animationDelay = `-${Math.random() * duration}s`;
+          span.style.animationIterationCount = 'infinite';
+          container?.appendChild(span);
+        }
+      }
+    </script>
+  </body>
+</html>

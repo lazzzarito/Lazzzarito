@@ -1,14 +1,10 @@
-# 1azarito - Portfolio
+# 🎯 About me
 
-I build fast websites that don't flop. No hype, no fluff.
+Hello, I'm 1azarito, the guy who fixes busted sites, builds clean web work, and keeps it real. If your page is laggy, clunky, or just ugly, I make it sharp and reliable.
 
-![Portfolio Preview](src/assets/about.webp)
+![1784487639830](src/assets/about.webp)
 
-## 🎯 About me
-
-I'm the guy who fixes busted sites, builds clean web work, and keeps it real. If your page is laggy, clunky, or just ugly, I make it sharp and reliable.
-
-### What I handle:
+## What I handle:
 
 - 🎨 **UI/UX Design** - Real interfaces, not fake pretty stuff
 - 💻 **Frontend Development** - HTML, CSS, JavaScript, PHP

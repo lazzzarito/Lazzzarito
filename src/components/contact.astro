@@ -38,7 +38,7 @@ import localData from "../data/home.json";
               >
                 <Icon
                   name={social.icon}
-                  class="w-10 h-10 text-accent mb-4 mx-auto group-hover:scale-110 transition-transform"
+                  class="w-10 h-10 text-white mb-4 mx-auto group-hover:scale-110 transition-transform"
                 />
                 <h3 class="text-maintext font-bold mb-1">{social.name}</h3>
                 <p class="text-subtext text-xs truncate px-2">
@@ -52,24 +52,13 @@ import localData from "../data/home.json";
         }
       </div>
 
-      <!-- /* FOOTER */ -->
-      <div class="contact-footer opacity-0 pt-20 border-t border-white/5">
-        <div
-          class="flex flex-col md:flex-row justify-between items-center gap-4"
-        >
-          <p class="text-subtext text-sm font-body order-2 md:order-1">
-            {localData.name} © 2026
-          </p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <style>
-  /* Header & Footer Initial State */
-  .contact-header,
-  .contact-footer {
+  /* Header Initial State */
+  .contact-header {
     transform: translateY(20px);
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -82,8 +71,7 @@ import localData from "../data/home.json";
 
   /* Shared Revealed State */
   .contact-header.reveal,
-  .contact-card.reveal,
-  .contact-footer.reveal {
+  .contact-card.reveal {
     opacity: 1 !important;
     transform: translateY(0) scale(1);
   }
@@ -92,7 +80,6 @@ import localData from "../data/home.json";
 <script>
   const revealContact = () => {
     const header = document.querySelector(".contact-header");
-    const footer = document.querySelector(".contact-footer");
     const cards = document.querySelectorAll(".contact-card");
 
     const observer = new IntersectionObserver(
@@ -111,7 +98,7 @@ import localData from "../data/home.json";
                 (index % 4) * 150,
               );
             } else {
-              // Header and Footer reveal immediately
+              // Header reveals immediately
               target.classList.add("reveal");
             }
 
@@ -126,7 +113,6 @@ import localData from "../data/home.json";
     );
 
     if (header) observer.observe(header);
-    if (footer) observer.observe(footer);
     cards.forEach((card) => observer.observe(card));
   };
 

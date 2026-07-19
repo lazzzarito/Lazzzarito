@@ -1,16 +1,17 @@
 ---
 import '../styles/global.css'
-import { SITE_CONFIG } from '../config.ts';
 import favicon from '../assets/favicon.ico';
+import aboutImage from '../assets/about.webp';
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description = "Portfolio of 1azarito — Web developer specializing in frontend development, UI/UX design, and site fixes. I build fast, clean websites that don't flop." } = Astro.props;
 
-const baseTheme = SITE_CONFIG.baseTheme;
-const defaultTheme = `${baseTheme}-dark`;
+const canonicalURL = Astro.url;
+const ogImage = new URL(aboutImage.src, Astro.url).href;
 ---
 
 <!doctype html>
@@ -18,22 +19,43 @@ const defaultTheme = `${baseTheme}-dark`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="1azarito" />
+    <meta name="robots" content="index, follow" />
+
     <link rel="icon" href={favicon} type="image/x-icon" />
     <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+    <link rel="canonical" href={canonicalURL} />
+
     <title>{title}</title>
 
-    <!-- THEME TOGGLE SCRIPT -->
-    <script is:inline define:vars={{ baseTheme, defaultTheme }}>
-      const savedTheme = localStorage.getItem('theme');
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="1azarito | Portfolio" />
 
-      if (savedTheme && savedTheme.startsWith(baseTheme)) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      } else {
-        document.documentElement.setAttribute('data-theme', defaultTheme);
-        localStorage.setItem('theme', defaultTheme);
-      }
-    </script>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "1azarito",
+      "url": "https://1azarito.dev",
+      "image": ogImage,
+      "jobTitle": "Web Developer",
+      "sameAs": [
+        "https://github.com/lazzzarito",
+        "https://x.com/1azarito"
+      ]
+    })} />
   </head>
   <body class="bg-container relative min-h-screen overflow-x-hidden antialiased">
     <div 
@@ -42,31 +64,31 @@ const defaultTheme = `${baseTheme}-dark`;
       style="mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);"
     ></div>
 
-    <main class="px-2 sm:px-12 md:px-14 lg:px-28 max-w-360 mx-auto relative z-0">
+    <main class="px-2 sm:px-12 md:px-14 lg:px-28 max-w-360 mx-auto relative z-0 pt-16 md:pt-0">
         <slot />
     </main>
 
     <button
       id="to-top"
-      class="fixed bottom-8 right-8 z-50 p-0 rounded-full bg-background border border-accent/10 shadow-2xl transition-all duration-500 translate-y-20 opacity-0 group flex items-center justify-center cursor-pointer"
+      class="fixed bottom-8 right-4 md:right-8 z-10 p-0 rounded-full bg-background border border-white/10 shadow-2xl transition-all duration-500 translate-y-20 opacity-0 group flex items-center justify-center cursor-pointer"
       aria-label="Back to top"
     >
       <svg class="w-14 h-14 -rotate-90">
-        <circle cx="28" cy="28" r="24" fill="none" stroke="currentColor" stroke-width="3" class="text-accent/5"></circle>
+        <circle cx="28" cy="28" r="24" fill="none" stroke="currentColor" stroke-width="3" class="text-white/10"></circle>
         <circle
           id="progress-circle"
           cx="28" cy="28" r="24"
           fill="none"
-          stroke="currentColor" 
+          stroke="currentColor"
           stroke-width="3"
           stroke-dasharray="150.7"
           stroke-dashoffset="150.7"
           stroke-linecap="round"
-          class="text-accent transition-all duration-100"
+          class="text-white transition-all duration-100"
         ></circle>
       </svg>
       
-      <div class="absolute text-accent group-hover:scale-110 transition-transform">
+      <div class="absolute text-white group-hover:scale-110 transition-transform">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
           <path d="M13.0001 7.82843V20H11.0001V7.82843L5.63614 13.1924L4.22192 11.7782L12.0001 4L19.7783 11.7782L18.3641 13.1924L13.0001 7.82843Z"></path>
         </svg>
@@ -97,8 +119,8 @@ const defaultTheme = `${baseTheme}-dark`;
         span.style.fontSize = `${size}px`;
         span.style.animationDuration = `${duration}s`;
         
-        // Add a slight glow effect
-        span.style.textShadow = `0 0 5px ${color}`;
+        // Add a stronger glow effect for better contrast
+        span.style.textShadow = `0 0 8px ${color}, 0 0 20px rgba(255,255,255,0.12)`;
         
         container.appendChild(span);
 
@@ -109,43 +131,31 @@ const defaultTheme = `${baseTheme}-dark`;
 
 
       if (window.innerWidth > 768) {
-        // one letter every 250ms
-        setInterval(createLetter, 250);
+        // Create letters more frequently for a denser rain effect
+        setInterval(createLetter, 100);
       } else {
-        // Static scatter effect for mobile optimization
-        const mobileCount = 20; 
+        // CSS-animated rain for mobile (no continuous JS — lightweight)
+        const mobileCount = 25;
         for (let i = 0; i < mobileCount; i++) {
-          createStaticLetter();
+          const span = document.createElement('span');
+          const char = characters[Math.floor(Math.random() * characters.length)];
+          const color = "var(--color-textrain)";
+          const duration = 4 + Math.random() * 8;
+          
+          span.innerText = char;
+          span.className = 'falling-letter';
+          span.style.left = `${Math.random() * 100}vw`;
+          span.style.color = color;
+          span.style.fontSize = `${10 + Math.random() * 10}px`;
+          span.style.textShadow = `0 0 8px ${color}, 0 0 20px rgba(255,255,255,0.12)`;
+          span.style.animationDuration = `${duration}s`;
+          span.style.animationDelay = `-${Math.random() * duration}s`; // start at random point
+          span.style.animationIterationCount = 'infinite';
+          
+          container.appendChild(span);
         }
       }
 
-      function createStaticLetter() {
-        if (!container) return;
-
-        const span = document.createElement('span');
-        const char = characters[Math.floor(Math.random() * characters.length)];
-        const color = "var(--color-textrain)";
-        
-        const left = Math.random() * 100; 
-        const top = Math.random() * 90; // Random vertical position
-        const size = 10 + Math.random() * 10;
-        
-        span.innerText = char;
-        span.className = 'falling-letter'; // from global.css
-        
-        // Override animation for mobile 'none'
-        span.style.animation = 'none'; 
-        span.style.left = `${left}vw`;
-        span.style.top = `${top}vh`;
-        span.style.color = color;
-        span.style.fontSize = `${size}px`;
-        span.style.opacity = (0.1 + Math.random() * 0.3).toString();
-        span.style.textShadow = `0 0 5px ${color}`;
-        
-        container.appendChild(span);
-      }
-
-      
       // ** SCROLL TO TOP ** //
       const toTopBtn = document.getElementById('to-top');
       const progressCircle = document.getElementById('progress-circle');

@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-import ThemeToggle from "./theme-toggle.astro";
 interface NavItem {
   label: string;
   href: string;
@@ -28,11 +26,6 @@ const navItems: NavItem[] = [
     href: "#tech",
     icon: `mdi:code-tags`,
   },
-  // {
-  //   label: "Education",
-  //   href: "#contact",
-  //   icon: `mdi:message`,
-  // },
   {
     label: "Contact",
     href: "#contact",
@@ -41,42 +34,63 @@ const navItems: NavItem[] = [
 ];
 ---
 
-<div
-  id="theme-toggle-wrapper"
-  class="fixed top-4 right-4 z-50 md:top-4 md:right-4 reveal-content"
-  style="animation-delay: 700ms;"
->
-  <ThemeToggle />
-</div>
+<!-- ========== MOBILE: HEADER WITH INLINE NAV + GITHUB ========== -->
+<header id="mobile-header" class="fixed top-0 left-0 w-full z-50 md:hidden">
+  <div class="flex items-center justify-between px-4 py-3 bg-background/70 backdrop-blur-lg border-b border-white/5">
+    <!-- Left: brackets icon + section links -->
+    <div class="flex items-center gap-2 min-w-0 flex-1">
+      <svg class="w-4 h-4 text-accent/80 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+      <div class="flex items-center gap-0 text-xs sm:text-sm font-heading font-bold tracking-tight overflow-x-auto whitespace-nowrap scrollbar-none">
+        {
+          navItems.map((item, i) => (
+            <>
+              {i > 0 && <span class="text-subtext/20 mx-0.5 select-none">/</span>}
+              <a
+                href={item.href}
+                class="mobile-nav-link px-1 py-0.5 text-subtext/60 hover:text-maintext transition-colors duration-200 rounded"
+              >
+                {item.label}
+              </a>
+            </>
+          ))
+        }
+      </div>
+    </div>
 
-<div class="flex justify-center w-full">
+    <!-- Right: GitHub icon -->
+    <a
+      href="https://github.com/1azarito"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="w-8 h-8 flex items-center justify-center bg-white/5 rounded-full transition-all duration-200 hover:bg-white/10 hover:scale-105 flex-shrink-0 ml-2"
+      aria-label="GitHub profile"
+    >
+      <svg class="w-4 h-4 text-maintext/80" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+    </a>
+  </div>
+</header>
+
+<!-- ========== DESKTOP: CENTERED NAV ========== -->
+<div class="hidden md:flex justify-center w-full">
   <nav
     id="main-nav"
-    class="fixed left-1/2 -translate-x-1/2 z-20 border-[1.2px] border-transparent transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
+    class="fixed left-1/2 -translate-x-1/2 z-20 border-[1.2px] border-transparent transition-all duration-500 ease-in-out top-6 w-[80%]"
   >
-    <div
-      class="container mx-auto flex justify-center items-center p-3 reveal-content"
-      style="animation-delay: 700ms;"
-    >
-      <ul
-        class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-12 gap-1"
-      >
+    <div class="container mx-auto flex justify-center items-center p-3">
+      <ul class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-12 gap-1">
         {
           navItems.map((item) => (
             <li class="flex-1 md:flex-none">
               <a
                 href={item.href}
-                class="flex flex-col items-center gap-1 text-accent transition-colors text-xs md:text-base relative group"
+                class="flex flex-row items-center gap-1 transition-colors text-xs md:text-base relative group text-subtext hover:text-maintext"
               >
-                <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 nav-indicator hidden md:block" />
-                <span class="md:hidden flex items-center justify-center w-6 h-6">
-                  <Icon
-                    name={item.icon}
-                    class="nav-icon w-full h-full text-accent/50 group-hover:text-accent transition-colors duration-300"
-                  />
-                </span>
                 <span class="hidden md:inline-block">{item.label}</span>
-                <span class="md:hidden text-xs">{item.label}</span>
               </a>
             </li>
           ))
@@ -87,19 +101,21 @@ const navItems: NavItem[] = [
 </div>
 
 <style>
-  /* Reveal whole section when website loads */
-  .reveal-content {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: revealIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  }
-  @keyframes revealIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* ===== MOBILE NAV LINKS ===== */
+  .mobile-nav-link.active {
+    color: var(--color-maintext) !important;
   }
 
+  /* Hide scrollbar for the inline nav on mobile */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ===== DESKTOP NAV STYLES ===== */
   nav {
     background-color: transparent;
     border-color: transparent;
@@ -119,198 +135,50 @@ const navItems: NavItem[] = [
       transparent 75%
     );
     border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
-
     border-radius: 9999px;
     backdrop-filter: blur(10px);
   }
 
-  nav a.active .nav-indicator {
-    transform: translateY(-50%) scale(1);
-    opacity: 0;
-  }
-
-  /* Base state for the link text */
-  nav a {
+  #main-nav a {
     transition:
       transform 0.3s ease,
       color 0.3s ease,
       font-weight 0.3s ease;
   }
 
-  /* Active state */
-  nav a.active {
+  #main-nav a.active {
     color: var(--color-maintext) !important;
     font-weight: 700;
     transform: scale(1.1);
   }
 
-  /* Glow effect */
-  nav a.active span {
+  #main-nav a.active span {
     text-shadow: 0 0 10px
       color-mix(in srgb, var(--color-maintext) 30%, transparent);
   }
 
-  /* Ensure the scale doesn't jitter the layout */
   nav li {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  /* Icon style for mobile view */
-  .nav-icon {
-    transition:
-      transform 0.3s ease,
-      color 0.3s ease,
-      filter 0.3s ease;
-  }
-
-  nav a.active .nav-icon {
-    color: var(--color-maintext) !important;
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 8px var(--color-maintext));
-  }
-
-  @media (max-width: 767px) {
-    nav {
-      width: 100% !important;
-      bottom: 0;
-      border-radius: 1.5rem 1.5rem 0 0;
-      background-color: color-mix(
-        in srgb,
-        var(--color-background),
-        transparent 10%
-      );
-      backdrop-filter: blur(10px);
-      border-top: 1px solid
-        color-mix(in srgb, var(--color-maintext) 15%, transparent);
-    }
-
-    nav.scrolling {
-      border-radius: 1.5rem 1.5rem 0 0;
-      width: 100% !important;
-    }
-
-    /* Hiding bottom bar while scroling on mobile */
-    #main-nav {
-      /* Force Hardware Acceleration (Fixes the white flash) */
-      will-change: transform;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      /* Force it into its own GPU layer permanently */
-      transform: translateZ(0);
-      -webkit-transform: translateZ(0);
-
-      /* Smooth transition */
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-
-      /* Ensure no default background is fighting the blur */
-      background-clip: padding-box;
-    }
-
-    #main-nav.nav-hidden {
-      /* transform: translateY(110%) !important; */
-      transform: translate3d(0, 110%, 0) !important;
-
-      /* Optional: Turn off blur when hidden to save GPU cycles */
-      backdrop-filter: blur(0px);
-    }
-
-    /* Hiding theme-toggle while scroling on mobile */
-    #theme-toggle-wrapper {
-      will-change: transform;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    /* Slide the button UP out of view */
-    #theme-toggle-wrapper.theme-hidden {
-      transform: translateY(-150%) !important;
-    }
-  }
-
-  /* Hover effect */
-  nav a:not(.active):hover {
+  #main-nav a:not(.active):hover {
     color: var(--color-maintext) !important;
   }
 
-  nav a:not(.active):hover span {
+  #main-nav a:not(.active):hover span {
     transform: scale(0.95);
-    text-shadow: 0 0 15px var(--color-accent-60);
-  }
-
-  nav a:not(.active):hover .nav-icon {
-    transform: scale(0.95);
-    color: var(--color-maintext) !important;
-  }
-
-  @media (max-width: 767px) {
-    body {
-      padding-bottom: 70px;
-    }
+    text-shadow: 0 0 15px color-mix(in srgb, var(--color-maintext) 40%, transparent);
   }
 </style>
 
 <script>
-  //scroll morphing effect, changing width & border radius
-  const nav = document.getElementById("main-nav");
-  const themeWrapper = document.getElementById("theme-toggle-wrapper");
-
-  const maxScroll = 1000;
-  let lastScrollY = window.scrollY;
-  let rafId: number | null = null;
-
-  function updateNav() {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > 0) {
-      nav?.classList.add("scrolling");
-
-      const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
-      const easeProgress = 1 - Math.pow(1 - scrollProgress, 4);
-
-      const minWidth = 620;
-      const maxWidth = window.innerWidth * 0.8;
-      const currentWidth = maxWidth - (maxWidth - minWidth) * easeProgress;
-
-      if (window.innerWidth >= 768) {
-        nav?.style.setProperty("width", `${currentWidth}px`);
-      }
-    } else {
-      nav?.classList.remove("scrolling");
-      // nav?.style.setProperty("width", "80%");
-    }
-    if (window.innerWidth < 768) {
-      // Small buffer (e.g. 10px) to prevent accidental hiding on "jittery" scrolls
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        // Scrolling Down - Hide Nav & theme-toggle
-        nav?.classList.add("nav-hidden");
-        themeWrapper?.classList.add("theme-hidden");
-      } else {
-        // Scrolling Up - Show Nav & theme-toggle
-        nav?.classList.remove("nav-hidden");
-        themeWrapper?.classList.remove("theme-hidden");
-      }
-    }
-
-    lastScrollY = currentScrollY;
-    rafId = null;
-  }
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (!rafId) {
-        rafId = requestAnimationFrame(updateNav);
-      }
-    },
-    { passive: true },
-  );
-
-  //smooth scrolling to a linked section
+  // ===== SMOOTH SCROLL TO SECTION =====
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      const target = e.currentTarget as HTMLAnchorElement;
-      const targetId = target.getAttribute("href")?.substring(1) || "";
+      const targetId = this.getAttribute("href")?.substring(1) || "";
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         targetElement.scrollIntoView({
@@ -320,29 +188,95 @@ const navItems: NavItem[] = [
     });
   });
 
-  //highlight section by observing visible one on the screen by 50%
-  document.addEventListener("DOMContentLoaded", () => {
+  // ===== ACTIVE SECTION HIGHLIGHT ON SCROLL =====
+  function initActiveSection() {
     const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll("nav a[href^='#']");
-    const observerOptions = { threshold: 0.5 };
+    const navLinks = document.querySelectorAll(
+      "#main-nav a[href^='#'], .mobile-nav-link",
+    );
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach((link) => link.classList.remove("active"));
-          const id = entry.target.getAttribute("id");
-          const activeLink = document.querySelector(`nav a[href="#${id}"]`);
-          if (activeLink) {
-            activeLink.classList.add("active");
-          }
-        }
-      });
+    const siteName = "1azarito";
+    const titleMap: Record<string, string> = {
+      home: "Portfolio",
+      services: "Services",
+      projects: "Projects",
+      tech: "Tech Stack",
+      contact: "Contact",
     };
 
     const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions,
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => link.classList.remove("active"));
+
+            const id = entry.target.getAttribute("id");
+            if (id && titleMap[id]) {
+              document.title = `${siteName} | ${titleMap[id]}`;
+            }
+
+            const desktopLink = document.querySelector(
+              `#main-nav a[href="#${id}"]`,
+            );
+            const mobileLink = document.querySelector(
+              `.mobile-nav-link[href="#${id}"]`,
+            );
+
+            if (desktopLink) desktopLink.classList.add("active");
+            if (mobileLink) mobileLink.classList.add("active");
+          }
+        });
+      },
+      {
+        rootMargin: "-80px 0px -60% 0px",
+      },
     );
+
     sections.forEach((section) => observer.observe(section));
-  });
+  }
+
+  // ===== DESKTOP SCROLL MORPHING =====
+  const desktopNav = document.getElementById("main-nav");
+
+  function updateNavMorph() {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > 0) {
+      desktopNav?.classList.add("scrolling");
+
+      const scrollProgress = Math.min(window.scrollY / 1000, 1);
+      const easeProgress = 1 - Math.pow(1 - scrollProgress, 4);
+
+      const minWidth = 620;
+      const maxWidth = window.innerWidth * 0.8;
+      const currentWidth = maxWidth - (maxWidth - minWidth) * easeProgress;
+
+      if (window.innerWidth >= 768) {
+        desktopNav?.style.setProperty("width", `${currentWidth}px`);
+      }
+    } else {
+      desktopNav?.classList.remove("scrolling");
+    }
+  }
+
+  let rafId: number | null = null;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!rafId) {
+        rafId = requestAnimationFrame(() => {
+          updateNavMorph();
+          rafId = null;
+        });
+      }
+    },
+    { passive: true },
+  );
+
+  // ===== INIT =====
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initActiveSection);
+  } else {
+    initActiveSection();
+  }
 </script>
