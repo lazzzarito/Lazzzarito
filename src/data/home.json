@@ -4,7 +4,7 @@
   "intro": "Ensuring your digital world runs smoothly. I take busted websites, slap them back together, and make them <span class='text-white font-bold'>move</span>.",
   "introHtml": "Ensuring your digital world runs smoothly. I take busted websites, slap them back together, and make them <span class='text-white font-bold'>move</span>.",
   "webpageTitle": "1azarito | Portfolio",
-  "resumeUrl": "",
+  "resumeUrl": "/src/assets/RESUME.pdf",
   "_comment": "Add your social links below. Leave the 'url' empty to hide the icon. Set 'showInContact' to true or false to control if it appears in the Contact section.",
   "socials": [
     {
@@ -26,27 +26,9 @@
       "showInContact": true
     },
     {
-      "name": "Telegram",
-      "url": "https://t.me/lazzzarito",
-      "icon": "mdi:telegram",
-      "showInContact": true
-    },
-    {
-      "name": "Instagram",
-      "url": "https://www.instagram.com/1azarito/",
-      "icon": "mdi:instagram",
-      "showInContact": true
-    },
-    {
       "name": "Twitter",
       "url": "https://x.com/1azarito",
       "icon": "mdi:twitter",
-      "showInContact": false
-    },
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/lazzzaritodev",
-      "icon": "mdi:facebook",
       "showInContact": false
     }
   ]

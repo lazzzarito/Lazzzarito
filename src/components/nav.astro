@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components';
-import ThemeToggle from './theme-toggle.astro';
+import { Icon } from "astro-icon/components";
+import ThemeToggle from "./theme-toggle.astro";
 interface NavItem {
   label: string;
   href: string;
@@ -14,8 +14,8 @@ const navItems: NavItem[] = [
     icon: `mdi:home`,
   },
   {
-    label: "Career",
-    href: "#career",
+    label: "Services",
+    href: "#services",
     icon: `mdi:work`,
   },
   {
@@ -37,10 +37,15 @@ const navItems: NavItem[] = [
     label: "Contact",
     href: "#contact",
     icon: `mdi:message`,
-  }
+  },
 ];
 ---
-<div id="theme-toggle-wrapper" class="fixed top-4 right-4 z-50 md:top-4 md:right-4 reveal-content" style="animation-delay: 700ms;">
+
+<div
+  id="theme-toggle-wrapper"
+  class="fixed top-4 right-4 z-50 md:top-4 md:right-4 reveal-content"
+  style="animation-delay: 700ms;"
+>
   <ThemeToggle />
 </div>
 
@@ -49,7 +54,10 @@ const navItems: NavItem[] = [
     id="main-nav"
     class="fixed left-1/2 -translate-x-1/2 z-20 border-[1.2px] border-transparent transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
   >
-    <div class="container mx-auto flex justify-center items-center p-3 reveal-content" style="animation-delay: 700ms;">
+    <div
+      class="container mx-auto flex justify-center items-center p-3 reveal-content"
+      style="animation-delay: 700ms;"
+    >
       <ul
         class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-12 gap-1"
       >
@@ -62,9 +70,9 @@ const navItems: NavItem[] = [
               >
                 <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 nav-indicator hidden md:block" />
                 <span class="md:hidden flex items-center justify-center w-6 h-6">
-                  <Icon 
-                    name={item.icon} 
-                    class="nav-icon w-full h-full text-accent/50 group-hover:text-accent transition-colors duration-300" 
+                  <Icon
+                    name={item.icon}
+                    class="nav-icon w-full h-full text-accent/50 group-hover:text-accent transition-colors duration-300"
                   />
                 </span>
                 <span class="hidden md:inline-block">{item.label}</span>
@@ -79,7 +87,7 @@ const navItems: NavItem[] = [
 </div>
 
 <style>
-    /* Reveal whole section when website loads */
+  /* Reveal whole section when website loads */
   .reveal-content {
     opacity: 0;
     transform: translateY(20px);
@@ -104,10 +112,14 @@ const navItems: NavItem[] = [
       width 0.4s ease;
   }
 
-   nav.scrolling {
-    background-color: color-mix(in srgb, var(--color-background), transparent 75%);
+  nav.scrolling {
+    background-color: color-mix(
+      in srgb,
+      var(--color-background),
+      transparent 75%
+    );
     border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
-    
+
     border-radius: 9999px;
     backdrop-filter: blur(10px);
   }
@@ -119,7 +131,10 @@ const navItems: NavItem[] = [
 
   /* Base state for the link text */
   nav a {
-    transition: transform 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease,
+      font-weight 0.3s ease;
   }
 
   /* Active state */
@@ -131,7 +146,8 @@ const navItems: NavItem[] = [
 
   /* Glow effect */
   nav a.active span {
-    text-shadow: 0 0 10px color-mix(in srgb, var(--color-maintext) 30%, transparent);
+    text-shadow: 0 0 10px
+      color-mix(in srgb, var(--color-maintext) 30%, transparent);
   }
 
   /* Ensure the scale doesn't jitter the layout */
@@ -143,7 +159,10 @@ const navItems: NavItem[] = [
 
   /* Icon style for mobile view */
   .nav-icon {
-    transition: transform 0.3s ease, color 0.3s ease, filter 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease,
+      filter 0.3s ease;
   }
 
   nav a.active .nav-icon {
@@ -157,9 +176,14 @@ const navItems: NavItem[] = [
       width: 100% !important;
       bottom: 0;
       border-radius: 1.5rem 1.5rem 0 0;
-      background-color: color-mix(in srgb, var(--color-background), transparent 10%);
+      background-color: color-mix(
+        in srgb,
+        var(--color-background),
+        transparent 10%
+      );
       backdrop-filter: blur(10px);
-      border-top: 1px solid color-mix(in srgb, var(--color-maintext) 15%, transparent);
+      border-top: 1px solid
+        color-mix(in srgb, var(--color-maintext) 15%, transparent);
     }
 
     nav.scrolling {
@@ -176,7 +200,7 @@ const navItems: NavItem[] = [
       /* Force it into its own GPU layer permanently */
       transform: translateZ(0);
       -webkit-transform: translateZ(0);
-      
+
       /* Smooth transition */
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 
@@ -187,7 +211,7 @@ const navItems: NavItem[] = [
     #main-nav.nav-hidden {
       /* transform: translateY(110%) !important; */
       transform: translate3d(0, 110%, 0) !important;
-      
+
       /* Optional: Turn off blur when hidden to save GPU cycles */
       backdrop-filter: blur(0px);
     }
@@ -212,7 +236,7 @@ const navItems: NavItem[] = [
     transform: scale(0.95);
     text-shadow: 0 0 15px var(--color-accent-60);
   }
-  
+
   nav a:not(.active):hover .nav-icon {
     transform: scale(0.95);
     color: var(--color-maintext) !important;
@@ -278,7 +302,7 @@ const navItems: NavItem[] = [
         rafId = requestAnimationFrame(updateNav);
       }
     },
-    { passive: true }
+    { passive: true },
   );
 
   //smooth scrolling to a linked section
@@ -317,9 +341,8 @@ const navItems: NavItem[] = [
 
     const observer = new IntersectionObserver(
       observerCallback,
-      observerOptions
+      observerOptions,
     );
     sections.forEach((section) => observer.observe(section));
   });
 </script>
-

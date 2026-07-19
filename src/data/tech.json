@@ -1,129 +1,92 @@
 {
-  "categories": [
+  "skills": [
     {
-      "title": "Frontend",
-      "skills": [
-        {
-          "name": "HTML",
-          "level": 3,
-          "icon": "skill-icons:html"
-        },
-        {
-          "name": "CSS",
-          "level": 3,
-          "icon": "skill-icons:css"
-        },
-        {
-          "name": "JavaScript",
-          "level": 3,
-          "icon": "skill-icons:javascript"
-        },
-        {
-          "name": "TypeScript",
-          "level": 3,
-          "icon": "skill-icons:typescript"
-        },
-        {
-          "name": "React",
-          "level": 3,
-          "icon": "skill-icons:react-dark"
-        },
-        {
-          "name": "NextJs",
-          "level": 3,
-          "icon": "skill-icons:nextjs-dark"
-        },
-        {
-          "name": "Astro",
-          "level": 3,
-          "icon": "skill-icons:astro"
-        },
-        {
-          "name": "Tailwind",
-          "level": 3,
-          "icon": "skill-icons:tailwindcss-dark"
-        }
-      ]
+      "name": "HTML",
+      "icon": "skill-icons:html"
     },
     {
-      "title": "CMS & Design",
-      "skills": [
-        {
-          "name": "WordPress",
-          "level": 3,
-          "icon": "skill-icons:wordpress"
-        },
-        {
-          "name": "WooCommerce",
-          "level": 3,
-          "icon": "mdi:cart-outline"
-        },
-        {
-          "name": "Shopify",
-          "level": 3,
-          "icon": "mdi:storefront-outline"
-        },
-        {
-          "name": "Webflow",
-          "level": 3,
-          "icon": "mdi:code-tags"
-        },
-        {
-          "name": "Framer",
-          "level": 2,
-          "icon": "mdi:draw"
-        },
-        {
-          "name": "Figma",
-          "level": 3,
-          "icon": "skill-icons:figma-dark"
-        }
-      ]
+      "name": "CSS",
+      "icon": "skill-icons:css"
     },
     {
-      "title": "Backend & DevOps",
-      "skills": [
-        {
-          "name": "PHP",
-          "level": 3,
-          "icon": "skill-icons:php-dark"
-        },
-        {
-          "name": "Node.js",
-          "level": 3,
-          "icon": "skill-icons:nodejs-dark"
-        },
-        {
-          "name": "Python",
-          "level": 3,
-          "icon": "skill-icons:python-dark"
-        },
-        {
-          "name": "Kotlin",
-          "level": 2,
-          "icon": "skill-icons:kotlin-dark"
-        },
-        {
-          "name": "Git",
-          "level": 3,
-          "icon": "skill-icons:git"
-        },
-        {
-          "name": "Docker",
-          "level": 2,
-          "icon": "skill-icons:docker"
-        },
-        {
-          "name": "Linux",
-          "level": 3,
-          "icon": "skill-icons:linux-dark"
-        },
-        {
-          "name": "SQL",
-          "level": 3,
-          "icon": "mdi:database-outline"
-        }
-      ]
+      "name": "JavaScript",
+      "icon": "skill-icons:javascript"
+    },
+    {
+      "name": "TypeScript",
+      "icon": "skill-icons:typescript"
+    },
+    {
+      "name": "React",
+      "icon": "skill-icons:react-dark"
+    },
+    {
+      "name": "NextJs",
+      "icon": "skill-icons:nextjs-dark"
+    },
+    {
+      "name": "Astro",
+      "icon": "skill-icons:astro"
+    },
+    {
+      "name": "Tailwind",
+      "icon": "skill-icons:tailwindcss-dark"
+    },
+    {
+      "name": "WordPress",
+      "icon": "skill-icons:wordpress"
+    },
+    {
+      "name": "WooCommerce",
+      "icon": "mdi:cart-outline"
+    },
+    {
+      "name": "Shopify",
+      "icon": "mdi:storefront-outline"
+    },
+    {
+      "name": "Webflow",
+      "icon": "mdi:code-tags"
+    },
+    {
+      "name": "Framer",
+      "icon": "mdi:draw"
+    },
+    {
+      "name": "Figma",
+      "icon": "skill-icons:figma-dark"
+    },
+    {
+      "name": "PHP",
+      "icon": "skill-icons:php-dark"
+    },
+    {
+      "name": "Node.js",
+      "icon": "skill-icons:nodejs-dark"
+    },
+    {
+      "name": "Python",
+      "icon": "skill-icons:python-dark"
+    },
+    {
+      "name": "Kotlin",
+      "icon": "skill-icons:kotlin-dark"
+    },
+    {
+      "name": "Git",
+      "icon": "skill-icons:git"
+    },
+    {
+      "name": "Docker",
+      "icon": "skill-icons:docker"
+    },
+    {
+      "name": "Linux",
+      "icon": "skill-icons:linux-dark"
+    },
+    {
+      "name": "SQL",
+      "icon": "mdi:database-outline"
     }
   ]
 }

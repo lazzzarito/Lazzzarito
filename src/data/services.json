@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Custom Web Builds",
+    "description": "I design and develop websites from the ground up—no cookie-cutter templates. Every build is tailored to your brand, goals, and audience, with clean architecture, solid performance, and room to grow as your business does.",
+    "skills": ["Astro", "React", "Next.js", "WordPress", "Shopify"]
+  },
+  {
+    "title": "Frontend Development",
+    "description": "Interfaces that feel fast and look sharp. I write maintainable, accessible frontend code with modern frameworks, optimized assets, and responsive layouts that work across devices without sacrificing polish.",
+    "skills": ["TypeScript", "React", "Tailwind", "Astro", "Next.js"]
+  },
+  {
+    "title": "Site Fixes & Rescue",
+    "description": "Broken layouts, slow load times, outdated plugins, or a site that barely holds together—I diagnose the real issues, patch what matters, and rebuild the weak spots so your project is stable, secure, and ready for traffic again.",
+    "skills": ["Debugging", "Performance", "WordPress", "Legacy Code"]
+  },
+  {
+    "title": "UI/UX Design",
+    "description": "Good design is more than aesthetics. I map user flows, refine visual hierarchy, and craft interfaces people actually understand and enjoy using—so visitors stay longer and convert more often.",
+    "skills": ["Figma", "Framer", "Prototyping", "Design Systems"]
+  },
+  {
+    "title": "Technical Consulting",
+    "description": "Not sure which stack, CMS, or hosting setup fits your product? I help you cut through the noise with practical advice on architecture, tooling, and trade-offs—so you invest in tech that matches your budget and roadmap.",
+    "skills": ["Architecture", "CMS Strategy", "Stack Selection"]
+  },
+  {
+    "title": "No-Code Solutions",
+    "description": "When speed matters more than custom code, I leverage Webflow, Framer, and similar platforms to ship polished sites and landing pages fast—without locking you into a solution you can’t maintain or expand later.",
+    "skills": ["Webflow", "Framer", "WordPress", "Shopify"]
+  }
+]
