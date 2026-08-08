@@ -2,7 +2,7 @@
 
 Hello, I'm 1azarito, the guy who fixes busted sites, builds clean web work, and keeps it real. If your page is laggy, clunky, or just ugly, I make it sharp and reliable.
 
-![1784487639830](src/assets/about.webp)
+<img src="src/assets/about.webp" alt="About me" width="400" />
 
 ## What I handle:
 
