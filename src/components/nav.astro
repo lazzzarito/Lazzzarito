@@ -42,7 +42,7 @@ const navItems: NavItem[] = [
     <!-- Left: brackets icon + section links -->
     <div class="flex items-center gap-2 min-w-0 flex-1">
       <svg
-        class="w-4 h-4 text-accent/80 flex-shrink-0"
+        class="w-4 h-4 text-accent/80 shrink-0"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -79,7 +79,7 @@ const navItems: NavItem[] = [
       href="https://github.com/lazzzarito"
       target="_blank"
       rel="noopener noreferrer"
-      class="w-8 h-8 flex items-center justify-center bg-white/5 rounded-full transition-all duration-200 hover:bg-white/10 hover:scale-105 flex-shrink-0 ml-2"
+      class="w-8 h-8 flex items-center justify-center bg-white/5 rounded-full transition-all duration-200 hover:bg-white/10 hover:scale-105 shrink-0 ml-2"
       aria-label="GitHub profile"
     >
       <svg
@@ -201,7 +201,7 @@ const navItems: NavItem[] = [
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      const targetId = this.getAttribute("href")?.substring(1) || "";
+      const targetId = anchor.getAttribute("href")?.substring(1) || "";
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         targetElement.scrollIntoView({
